@@ -1,7 +1,9 @@
-LIBS=-lpcre -lcrypto -lm -lpthread
-CFLAGS=-ggdb -O3 -Wall
+LIBS=-lpcre -lcrypto -lm -lpthread -L/usr/lib/openssl-1.0 -lssl
+CFLAGS=-ggdb -O3 -Wall -I/usr/include/openssl-1.0
 OBJS=vanitygen.o oclvanitygen.o oclvanityminer.o oclengine.o keyconv.o pattern.o util.o
 PROGS=vanitygen keyconv oclvanitygen oclvanityminer
+
+PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig"
 
 PLATFORM=$(shell uname -s)
 ifeq ($(PLATFORM),Darwin)
